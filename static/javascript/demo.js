@@ -33,11 +33,11 @@ $(document).ready(function() {
 
         var src = '/api/generate?url=' + url + '&width=' + width + '&height=' + height + '&delay=' + delay + '&full=' + full + '&userAgent=' + userAgent;
 
-        $('.js-generate-btn').html('<i class="fa fa-spinner fa-spin"></i> 作成中 ...');
+        $('.js-generate-btn').html('<i class="fa fa-spinner fa-spin"></i> 画像作成中 ...');
 
         $('#results img#webshot').load(function() {
           $('#results').show();
-          $('.js-generate-btn').html('Generate');
+          $('.js-generate-btn').html('スクリーンショット');
           // scroll to results section
           $('html, body').animate({
               scrollTop: $('#results').offset().top - 30
