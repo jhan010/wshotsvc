@@ -4,6 +4,7 @@ $(document).ready(function() {
     $('.js-generate').submit(function(e) {
         e.preventDefault();
         var url = $('#url').val();
+        //var width = 1024;
         var width = 1280;
         var height = 768;
         var delay = 0;
@@ -32,7 +33,7 @@ $(document).ready(function() {
 
         var src = '/api/generate?url=' + url + '&width=' + width + '&height=' + height + '&delay=' + delay + '&full=' + full + '&userAgent=' + userAgent;
 
-        $('.js-generate-btn').html('<i class="fa fa-spinner fa-spin"></i> Generating - this should only take a moment ...');
+        $('.js-generate-btn').html('<i class="fa fa-spinner fa-spin"></i> 作成中 ...');
 
         $('#results img#webshot').load(function() {
           $('#results').show();
