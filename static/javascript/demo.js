@@ -4,11 +4,11 @@ $(document).ready(function() {
     $('.js-generate').submit(function(e) {
         e.preventDefault();
         var url = $('#url').val();
-        var width = $('#width').val();
-        var height = $('#height').val();
-        var delay = $('#delay').val();
-        var userAgent = $('#userAgent').val();
-        var full = $('#full').is(':checked');
+        var width = 1024;
+        var height = 768;
+        var delay = 0;
+        var userAgent = "";
+        var full = false;
 
         // Validate if "something" was provided as a URL
         if (!url || url === '') {
