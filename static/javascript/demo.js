@@ -7,7 +7,7 @@ $(document).ready(function() {
         //var width = 1024;
         var width = 1280;
         var height = 768;
-        var delay = 0;
+        var delay = 3000;
         var userAgent = "";
         var full = true;
 
@@ -21,12 +21,16 @@ $(document).ready(function() {
             url = 'http://' + url;
         }
 
+        //全角を含むURLのエンコード
+        url = encodeURI(url);
+
         // Validate that the "something" that was provided is in fact a URL
         if (!URL_REGEX.test(url)) {
             $('#url').parent().addClass('error');
             return;
         }
 
+        //パラメータ化するためのエンコード
         url = encodeURIComponent(url);
 
         $('#url').parent().removeClass('error');
