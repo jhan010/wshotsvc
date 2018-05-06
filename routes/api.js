@@ -7,6 +7,9 @@ var WebshotAPI = require('../api');
  * Generate an image
  */
 exports.generate = function(req, res) {
+
+    stdLog("routes generate");
+
     var url = req.param('url');
     if (!url) {
         return res.send(400, 'Missing url');
@@ -28,6 +31,8 @@ exports.generate = function(req, res) {
         'full': (req.param('full') === 'true')
     };
 
+	stdLog("routes generate " + "width:" + options.width + " " + "height:" + options.height + " " + "delay:" + options.delay + " " + "userAgent:" + options.userAgent + " " + "full:" + options.full);
+
     WebshotAPI.generate(url, options, function(err, path) {
         if (err) {
             res.send(err.code, err.msg);
@@ -46,3 +51,9 @@ exports.generate = function(req, res) {
         }
     });
 };
+
+var stdLog = function(logstring) {
+	var date = new Date();
+	console.log(date.toString() + " " + logstring);
+}
+

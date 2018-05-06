@@ -17,6 +17,9 @@ var webshot = require('webshot');
  * @param  {String}     callback.path       The path on disk where the image is stored
  */
 var generate = module.exports.generate = function(url, options, callback) {
+
+	stdLog("width:" + options.width + " " + "height:" + options.height + " " + "delay:" + options.delay + " " + "userAgent:" + options.userAgent + " " + "full:" + options.full);
+
     options = options || {};
     options.width = options.width || 1024;
     options.height = options.height || 768;
@@ -50,7 +53,8 @@ var screengrab = function(url, options, callback) {
             'height': options.height
         },
         'shotSize': {
-            'width': 'window',
+            //'width': 'window',
+            'width': (options.full === true) ? 'all' : 'window',
             'height': (options.full === true) ? 'all' : 'window'
         },
         'userAgent': options.userAgent,
@@ -68,3 +72,9 @@ var screengrab = function(url, options, callback) {
         return callback(null, tempPath);
     });
 };
+
+var stdLog = function(logstring) {
+	var date = new Date();
+	console.log(date.toString() + " " + logstring);
+}
+
